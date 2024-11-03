@@ -6,8 +6,6 @@ import { TgBotTokenProvider } from "@effect-ak/tg-bot/api";
 import botConfig from "../config.json";
 import { messageHandler } from "./message-handler";
 
-console.log(botConfig);
-
 const configProvider =
   ConfigProvider.fromJson(botConfig)
 
@@ -24,7 +22,6 @@ const pollingServiceLive =
       ])
     )
   )
-
 
 const program = 
   Effect.gen(function* () {

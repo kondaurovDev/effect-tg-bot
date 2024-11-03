@@ -5,7 +5,11 @@ export const messageHandler: MessageHandler = ({ message, currentChatId, chat })
   if (message.text == null) {
     return chat.sendMessage({
       chat_id: currentChatId,
-      text: "I got your non-text message!"
+      text: "I got your non-text message!",
+      reply_parameters: {
+        chat_id: currentChatId,
+        message_id: message.message_id
+      }
     });
   }
 

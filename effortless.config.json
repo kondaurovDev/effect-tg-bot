@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/@effect-ak/effortless/aws-state.json",
+  "projectId": "effect-tg-buddy",
+  "region": "eu-west-3",
+  "functions": [
+    {
+      "functionName": "bot-message-handler",
+      "description": "process incoming telegram bot updates",
+      "src": "./src/lambda-handler.ts",
+      "memory": 256,
+      "timeout": 60,
+      "env": {}
+    }
+  ]
+}
