@@ -1,7 +1,14 @@
 import { MessageHandler } from "@effect-ak/tg-bot";
 
+import { askAI } from "./ai-service";
+
 export const messageHandler: MessageHandler =
   async ({ message, currentChatId, service }) => {
+
+    await service.chat.setChatAction({
+      action: "typing",
+      chat_id: currentChatId
+    }).promise()
 
     if (message.text == null) {
       return service.chat.sendMessage({
@@ -18,6 +25,15 @@ export const messageHandler: MessageHandler =
       return service.chat.sendDice({
         chat_id: currentChatId,
         emoji: "🏀"
+      });
+    }
+
+    if (message.text == "/fact") {
+      console.log("asked fact")
+      const fact = await askAI("tell me an interesting and practical information about typescript")
+      return service.chat.sendMessage({
+        chat_id: currentChatId,
+        text: fact
       });
     }
 
@@ -47,7 +63,6 @@ export const messageHandler: MessageHandler =
       })
     }
 
-    console.log("default")
     return service.chat.sendMessage({
       chat_id: currentChatId,
       reply_parameters: {

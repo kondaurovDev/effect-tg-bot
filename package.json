@@ -8,12 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@effect-ak/tg-bot": "0.0.5",
+    "@effect-ak/tg-bot": "file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz",
     "@effect/platform-node": "^0.64.0",
     "effect": "^3.10.0"
   },
   "devDependencies": {
     "@effect-ak/effortless": "file:../effortless/effect-ak-effortless-0.0.3.tgz",
+    "@effect-ak/ai": "^0.0.2",
     "@types/node": "^20.11.25",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.1",

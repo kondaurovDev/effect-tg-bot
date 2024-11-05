@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@effect-ak/tg-bot':
-        specifier: 0.0.5
-        version: 0.0.5(effect@3.10.10)
+        specifier: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz
+        version: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz(effect@3.10.10)
       '@effect/platform-node':
         specifier: ^0.64.0
         version: 0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
@@ -18,6 +18,9 @@ importers:
         specifier: ^3.10.0
         version: 3.10.10
     devDependencies:
+      '@effect-ak/ai':
+        specifier: ^0.0.2
+        version: 0.0.2(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
       '@effect-ak/effortless':
         specifier: file:../effortless/effect-ak-effortless-0.0.3.tgz
         version: file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/cli@0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10))(@effect/platform-node@0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
@@ -257,6 +260,13 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==, tarball: https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz}
     engines: {node: '>=12'}
 
+  '@effect-ak/ai@0.0.2':
+    resolution: {integrity: sha512-eDwTn3/vYiNYaW3/hP4CNPUAu2oKFBUWrcS0GDub9TYhZeZ6BDv/hwiAiT9vtLjyCl1RbwqhrqQGieZKjymmrg==, tarball: https://registry.npmjs.org/@effect-ak/ai/-/ai-0.0.2.tgz}
+    peerDependencies:
+      '@effect-ak/misc': ^0.0.6
+      '@effect/platform': ^0.69.0
+      effect: ^3.10.0
+
   '@effect-ak/effortless@file:../effortless/effect-ak-effortless-0.0.3.tgz':
     resolution: {integrity: sha512-mpfSX2AqbDzGkYq1T6nRlf6TLzz5dQgOm3+i304U+Zf+pH9rroqyCbBtfGQUZseRm1gzQ5B/4mxviFHFEZ6wjw==, tarball: file:../effortless/effect-ak-effortless-0.0.3.tgz}
     version: 0.0.3
@@ -277,8 +287,9 @@ packages:
       '@effect/platform': ^0.69.0
       effect: ^3.10.0
 
-  '@effect-ak/tg-bot@0.0.5':
-    resolution: {integrity: sha512-fsRT2IDRwutepVwmSuzQnmExZ4qKRzJSAj3DljoB2I1RkPR3mhQUDjkSQJ370M0hv6MrRM9Yw3sV0vrxCdY1uA==, tarball: https://registry.npmjs.org/@effect-ak/tg-bot/-/tg-bot-0.0.5.tgz}
+  '@effect-ak/tg-bot@file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz':
+    resolution: {integrity: sha512-zAiMW/yPDtUXx5YMfUuvRdf5Dhv7DbtQBa1tuf1MIw4zbzr2b6paWaCpzbzRgmtchHdFKdhfdClfDD8JubWAjg==, tarball: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz}
+    version: 0.0.6
     peerDependencies:
       effect: ^3.10.0
 
@@ -2363,6 +2374,12 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
+  '@effect-ak/ai@0.0.2(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)':
+    dependencies:
+      '@effect-ak/misc': 0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
+      '@effect/platform': 0.69.16(effect@3.10.10)
+      effect: 3.10.10
+
   '@effect-ak/effortless@file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/cli@0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10))(@effect/platform-node@0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)':
     dependencies:
       '@aws-sdk/client-apigatewayv2': 3.682.0
@@ -2395,7 +2412,7 @@ snapshots:
       '@effect/platform': 0.69.16(effect@3.10.10)
       effect: 3.10.10
 
-  '@effect-ak/tg-bot@0.0.5(effect@3.10.10)':
+  '@effect-ak/tg-bot@file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz(effect@3.10.10)':
     dependencies:
       effect: 3.10.10
 
