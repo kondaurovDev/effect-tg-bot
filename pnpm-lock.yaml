@@ -9,21 +9,24 @@ importers:
   .:
     dependencies:
       '@effect-ak/tg-bot':
-        specifier: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz
-        version: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz(effect@3.10.10)
+        specifier: ^0.0.7
+        version: 0.0.7(effect@3.10.12)
+      '@effect/platform':
+        specifier: ^0.69.18
+        version: 0.69.18(effect@3.10.12)
       '@effect/platform-node':
-        specifier: ^0.64.0
-        version: 0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
+        specifier: ^0.64.20
+        version: 0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
       effect:
-        specifier: ^3.10.0
-        version: 3.10.10
+        specifier: ^3.10.12
+        version: 3.10.12
     devDependencies:
       '@effect-ak/ai':
-        specifier: ^0.0.2
-        version: 0.0.2(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
+        specifier: ^0.0.4
+        version: 0.0.4(@effect-ak/misc@0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
       '@effect-ak/effortless':
         specifier: file:../effortless/effect-ak-effortless-0.0.3.tgz
-        version: file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/cli@0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10))(@effect/platform-node@0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
+        version: file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/cli@0.48.16(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(effect@3.10.12))(@effect/platform-node@0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
       '@types/node':
         specifier: ^20.11.25
         version: 20.17.6
@@ -260,8 +263,8 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==, tarball: https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz}
     engines: {node: '>=12'}
 
-  '@effect-ak/ai@0.0.2':
-    resolution: {integrity: sha512-eDwTn3/vYiNYaW3/hP4CNPUAu2oKFBUWrcS0GDub9TYhZeZ6BDv/hwiAiT9vtLjyCl1RbwqhrqQGieZKjymmrg==, tarball: https://registry.npmjs.org/@effect-ak/ai/-/ai-0.0.2.tgz}
+  '@effect-ak/ai@0.0.4':
+    resolution: {integrity: sha512-otFzo9N2ZD6xYRplHQmVOR82VHOOEnLZdmS10/0/JCyyxSyFHBLiIny/3KfgY6o9GUByjAJR07fjiUEqB7HuEw==, tarball: https://registry.npmjs.org/@effect-ak/ai/-/ai-0.0.4.tgz}
     peerDependencies:
       '@effect-ak/misc': ^0.0.6
       '@effect/platform': ^0.69.0
@@ -287,9 +290,8 @@ packages:
       '@effect/platform': ^0.69.0
       effect: ^3.10.0
 
-  '@effect-ak/tg-bot@file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz':
-    resolution: {integrity: sha512-zAiMW/yPDtUXx5YMfUuvRdf5Dhv7DbtQBa1tuf1MIw4zbzr2b6paWaCpzbzRgmtchHdFKdhfdClfDD8JubWAjg==, tarball: file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz}
-    version: 0.0.6
+  '@effect-ak/tg-bot@0.0.7':
+    resolution: {integrity: sha512-1LfI+ZUBAkhBSbIgpQVQKUWDt1mJm8lE1rVDvt01Owjdf0JhOyjULHLnF4sSBC3emk2mcB01LmD5tr9nJabtmw==, tarball: https://registry.npmjs.org/@effect-ak/tg-bot/-/tg-bot-0.0.7.tgz}
     peerDependencies:
       effect: ^3.10.0
 
@@ -301,22 +303,22 @@ packages:
       '@effect/printer-ansi': ^0.38.10
       effect: ^3.10.10
 
-  '@effect/platform-node-shared@0.19.17':
-    resolution: {integrity: sha512-GY8mOin/UK79Lm+bJbJVc5SfLViCSIKdyZSvXWZgo8WGu2/rjBejS19AouIaMBguMoH0W5J7YHjPc7rvXE3KpQ==, tarball: https://registry.npmjs.org/@effect/platform-node-shared/-/platform-node-shared-0.19.17.tgz}
+  '@effect/platform-node-shared@0.19.19':
+    resolution: {integrity: sha512-9uNGlLXOne3IclxJska6rEmUt3js2TBpm/R6yY8TVzriHkdKLiZKomIfsGzhJ/9/F9EjVr4x8/vHePHIfs9RRA==, tarball: https://registry.npmjs.org/@effect/platform-node-shared/-/platform-node-shared-0.19.19.tgz}
     peerDependencies:
-      '@effect/platform': ^0.69.16
-      effect: ^3.10.10
+      '@effect/platform': ^0.69.18
+      effect: ^3.10.12
 
-  '@effect/platform-node@0.64.18':
-    resolution: {integrity: sha512-RzCJrbVdwHZ1ZrtAf5Hgxnxw7NgrxXrAhnL+pn9LtRKejzq1sVIctzID6pYEDBxCd84V/Un5GoZt05XW8BDsBg==, tarball: https://registry.npmjs.org/@effect/platform-node/-/platform-node-0.64.18.tgz}
+  '@effect/platform-node@0.64.20':
+    resolution: {integrity: sha512-hAjabgbfmrPdctC3RaDzvV6s+MRByXo2vmrQoxfQh4tDYSU72M7iNCjObl7lk5ONGbnAWnfCI1P9cSRyJV6TJg==, tarball: https://registry.npmjs.org/@effect/platform-node/-/platform-node-0.64.20.tgz}
     peerDependencies:
-      '@effect/platform': ^0.69.16
-      effect: ^3.10.10
+      '@effect/platform': ^0.69.18
+      effect: ^3.10.12
 
-  '@effect/platform@0.69.16':
-    resolution: {integrity: sha512-c+odYnSHjL6DsHfqwYpmjQ+6CCAvOeJVj3X4SBLYUbIqUeokq8LNOTKT53j+WkCKKyEQzwWarh+e1KwxIMN6OA==, tarball: https://registry.npmjs.org/@effect/platform/-/platform-0.69.16.tgz}
+  '@effect/platform@0.69.18':
+    resolution: {integrity: sha512-PU8bgY6J16UJyMrsVbvyYzgEFJe9/xFAF+LQUuBhNhUB/YVLtKQsD1odRTw/Rr+BTrIoZ0gN74naIoabLZVctw==, tarball: https://registry.npmjs.org/@effect/platform/-/platform-0.69.18.tgz}
     peerDependencies:
-      effect: ^3.10.10
+      effect: ^3.10.12
 
   '@effect/printer-ansi@0.38.10':
     resolution: {integrity: sha512-GZ1Jb8lI3kDsDUzOPeqQBQG6gfbyoJrPAKA4ZV0NGegG+8nGBEsR8B5eueXot2RPV+7SK1xiA1yuaUgyPZUkSw==, tarball: https://registry.npmjs.org/@effect/printer-ansi/-/printer-ansi-0.38.10.tgz}
@@ -1065,8 +1067,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==, tarball: https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz}
 
-  effect@3.10.10:
-    resolution: {integrity: sha512-Kwu6PbhTyn/03Njw9A1FFq/vXlYLpPhE6YR8BLEMLABtH5Ta6yFAJCNUwnnDXg+T/SogBlZLavtiAeS3tYS2mQ==, tarball: https://registry.npmjs.org/effect/-/effect-3.10.10.tgz}
+  effect@3.10.12:
+    resolution: {integrity: sha512-+IqqTQS5+jM13qZHzfAX+RpCGOl0oBWIR7nec/zq76HyN/hdGQYnfr/LLLOVxUt8uIbckBea8rkwBKrQ0Hb/aA==, tarball: https://registry.npmjs.org/effect/-/effect-3.10.12.tgz}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==, tarball: https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz}
@@ -2374,13 +2376,13 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@effect-ak/ai@0.0.2(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)':
+  '@effect-ak/ai@0.0.4(@effect-ak/misc@0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect-ak/misc': 0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
-      '@effect/platform': 0.69.16(effect@3.10.10)
-      effect: 3.10.10
+      '@effect-ak/misc': 0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
+      '@effect/platform': 0.69.18(effect@3.10.12)
+      effect: 3.10.12
 
-  '@effect-ak/effortless@file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/cli@0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10))(@effect/platform-node@0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10))(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)':
+  '@effect-ak/effortless@file:../effortless/effect-ak-effortless-0.0.3.tgz(@effect-ak/misc@0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/cli@0.48.16(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(effect@3.10.12))(@effect/platform-node@0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12))(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)':
     dependencies:
       '@aws-sdk/client-apigatewayv2': 3.682.0
       '@aws-sdk/client-cloudwatch': 3.682.0
@@ -2394,50 +2396,50 @@ snapshots:
       '@aws-sdk/client-ssm': 3.682.0
       '@aws-sdk/client-sts': 3.682.0
       '@aws-sdk/util-dynamodb': 3.685.0(@aws-sdk/client-dynamodb@3.682.0)
-      '@effect-ak/misc': 0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
-      '@effect/cli': 0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10)
-      '@effect/platform': 0.69.16(effect@3.10.10)
-      '@effect/platform-node': 0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
-      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
-      '@effect/printer-ansi': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
-      '@effect/typeclass': 0.29.10(effect@3.10.10)
+      '@effect-ak/misc': 0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
+      '@effect/cli': 0.48.16(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(effect@3.10.12)
+      '@effect/platform': 0.69.18(effect@3.10.12)
+      '@effect/platform-node': 0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
+      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
+      '@effect/printer-ansi': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
+      '@effect/typeclass': 0.29.10(effect@3.10.12)
       archiver: 7.0.1
-      effect: 3.10.10
+      effect: 3.10.12
       esbuild: 0.24.0
     transitivePeerDependencies:
       - aws-crt
 
-  '@effect-ak/misc@0.0.6(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)':
+  '@effect-ak/misc@0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/platform': 0.69.16(effect@3.10.10)
-      effect: 3.10.10
+      '@effect/platform': 0.69.18(effect@3.10.12)
+      effect: 3.10.12
 
-  '@effect-ak/tg-bot@file:../effect-ak/dist/effect-ak-tg-bot-0.0.6.tgz(effect@3.10.10)':
+  '@effect-ak/tg-bot@0.0.7(effect@3.10.12)':
     dependencies:
-      effect: 3.10.10
+      effect: 3.10.12
 
-  '@effect/cli@0.48.16(@effect/platform@0.69.16(effect@3.10.10))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10))(effect@3.10.10)':
+  '@effect/cli@0.48.16(@effect/platform@0.69.18(effect@3.10.12))(@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/platform': 0.69.16(effect@3.10.10)
-      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
-      '@effect/printer-ansi': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
-      effect: 3.10.10
+      '@effect/platform': 0.69.18(effect@3.10.12)
+      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
+      '@effect/printer-ansi': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
+      effect: 3.10.12
       ini: 4.1.3
       toml: 3.0.0
       yaml: 2.6.0
 
-  '@effect/platform-node-shared@0.19.17(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)':
+  '@effect/platform-node-shared@0.19.19(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/platform': 0.69.16(effect@3.10.10)
+      '@effect/platform': 0.69.18(effect@3.10.12)
       '@parcel/watcher': 2.5.0
-      effect: 3.10.10
+      effect: 3.10.12
       multipasta: 0.2.5
 
-  '@effect/platform-node@0.64.18(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)':
+  '@effect/platform-node@0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/platform': 0.69.16(effect@3.10.10)
-      '@effect/platform-node-shared': 0.19.17(@effect/platform@0.69.16(effect@3.10.10))(effect@3.10.10)
-      effect: 3.10.10
+      '@effect/platform': 0.69.18(effect@3.10.12)
+      '@effect/platform-node-shared': 0.19.19(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
+      effect: 3.10.12
       mime: 3.0.0
       undici: 6.20.1
       ws: 8.18.0
@@ -2445,26 +2447,26 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@effect/platform@0.69.16(effect@3.10.10)':
+  '@effect/platform@0.69.18(effect@3.10.12)':
     dependencies:
-      effect: 3.10.10
+      effect: 3.10.12
       find-my-way-ts: 0.1.5
       multipasta: 0.2.5
 
-  '@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)':
+  '@effect/printer-ansi@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)
-      '@effect/typeclass': 0.29.10(effect@3.10.10)
-      effect: 3.10.10
+      '@effect/printer': 0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)
+      '@effect/typeclass': 0.29.10(effect@3.10.12)
+      effect: 3.10.12
 
-  '@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.10))(effect@3.10.10)':
+  '@effect/printer@0.38.10(@effect/typeclass@0.29.10(effect@3.10.12))(effect@3.10.12)':
     dependencies:
-      '@effect/typeclass': 0.29.10(effect@3.10.10)
-      effect: 3.10.10
+      '@effect/typeclass': 0.29.10(effect@3.10.12)
+      effect: 3.10.12
 
-  '@effect/typeclass@0.29.10(effect@3.10.10)':
+  '@effect/typeclass@0.29.10(effect@3.10.12)':
     dependencies:
-      effect: 3.10.10
+      effect: 3.10.12
 
   '@esbuild/aix-ppc64@0.23.1':
     optional: true
@@ -3164,7 +3166,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.10.10:
+  effect@3.10.12:
     dependencies:
       fast-check: 3.23.1
 

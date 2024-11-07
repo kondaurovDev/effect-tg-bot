@@ -1,6 +1,6 @@
-import { Effect } from "effect";
+import * as Effect from "effect/Effect";
 import { SingletonHandler } from "@effect-ak/effortless/lambda";
-import { PollingService, TgBotMessageHandlerRuntime } from "@effect-ak/tg-bot";
+import { PollingService } from "@effect-ak/tg-bot";
 
 import { handlerRuntime } from "./runtime/handler";
 import { messageHandler } from "./bot-logic";
@@ -15,9 +15,7 @@ export const handler =
 
         yield* Effect.logInfo("Running function", { input });
 
-        const fiber = yield* polling.handlerEffect(messageHandler).pipe(
-          Effect.provideService(TgBotMessageHandlerRuntime, handlerRuntime)
-        );
+        const fiber = yield* polling.handlerEffect(messageHandler);
 
         yield* fiber.pipe(
           Effect.catchAllCause(Effect.logError)
@@ -26,4 +24,4 @@ export const handler =
         yield* Effect.logInfo("Done")
 
       })
-  })
+  });

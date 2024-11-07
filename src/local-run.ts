@@ -1,5 +1,5 @@
 import { Effect, Logger, LogLevel } from "effect";
-import { PollingService, TgBotMessageHandlerRuntime } from "@effect-ak/tg-bot";
+import { PollingService } from "@effect-ak/tg-bot";
 import { NodeRuntime } from "@effect/platform-node";
 import { TgWebhookService } from "@effect-ak/tg-bot/module";
 
@@ -20,13 +20,12 @@ const program =
 
     yield* fiber.pipe(
       Effect.catchAllCause(Effect.logError)
-    )
+    );
 
   }).pipe(
     Logger.withMinimumLogLevel(LogLevel.Debug),
     Effect.provide(localRuntime),
-    Effect.provide(Logger.structured),
-    Effect.provideService(TgBotMessageHandlerRuntime, localRuntime)
+    Effect.provide(Logger.structured)
   )
 
 NodeRuntime.runMain(

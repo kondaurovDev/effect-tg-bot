@@ -1,11 +1,19 @@
 import { Config, ConfigProvider, Effect, Layer, pipe } from "effect";
 
+const layerWithMyConfigProvider = 
+  Layer.setConfigProvider(
+    ConfigProvider.fromJson({
+      parentProp: "some prop value"
+    })
+  )
+
 const printProp = 
   pipe(
     Config.nonEmptyString("parentProp"),
     Effect.andThen(prop =>
       Effect.log("propery value from parent", prop)
     ),
+    Effect.provide(layerWithMyConfigProvider),
     Effect.runPromise
   )
 
@@ -29,12 +37,6 @@ const parent =
   await pipe(
     Effect.forkDaemon(child),
     Effect.tap(Effect.logInfo("parent is working")),
-    Effect.provide(
-      Layer.setConfigProvider(
-        ConfigProvider.fromJson({
-          parentProp: "some prop value"
-        })
-      )
-    ),
+    Effect.provide(layerWithMyConfigProvider),
     Effect.runPromise
   )

@@ -1,15 +1,19 @@
-import { TgBotTokenProvider } from "@effect-ak/tg-bot/api";
+import { TgBotTokenProvider, TgPromiseConfigProvider } from "@effect-ak/tg-bot/api";
 import { ConfigProvider, Layer, ManagedRuntime } from "effect";
 import { PollingService } from "@effect-ak/tg-bot";
 import { TgWebhookService } from "@effect-ak/tg-bot/module";
 import { NodeFileSystem } from "@effect/platform-node";
 
 import botConfig from "../../config.json";
+import { initBackend } from "../ai-service";
+
+const configProvider = 
+  ConfigProvider.fromJson(botConfig);
+
+initBackend(configProvider);
 
 const configProviderLayer =
-  Layer.setConfigProvider(
-    ConfigProvider.fromJson(botConfig)
-  );
+  Layer.setConfigProvider(configProvider);
 
 const botTokenProviderLayer =
   TgBotTokenProvider.fromConfig.pipe(
@@ -19,7 +23,14 @@ const botTokenProviderLayer =
 export const localRuntime =
   ManagedRuntime.make(
     Layer.mergeAll(
-      PollingService.Default,
+      PollingService.Default.pipe(
+        Layer.provide(
+          Layer.succeed(
+            TgPromiseConfigProvider,
+            TgPromiseConfigProvider.of(configProvider)
+          )
+        )
+      ),
       TgWebhookService.Default,
     ).pipe(
       Layer.provide([

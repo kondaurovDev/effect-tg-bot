@@ -5,7 +5,8 @@ import { NodeFileSystem } from "@effect/platform-node";
 import { Context, Effect, Layer, ManagedRuntime } from "effect";
 import { PollingService, TgBotService } from "@effect-ak/tg-bot";
 import { TgBotTokenProvider } from "@effect-ak/tg-bot/api";
-import { Openai } from "@effect-ak/ai/vendor";
+import { AiMainService } from "@effect-ak/ai";
+import { initBackend } from "../ai-service";
 
 const mainConfig =
   Layer.provideMerge(
@@ -23,17 +24,19 @@ const contextConfig =
       )
   );
 
-const layerWithConfig = 
+const layerWithConfig =
   Effect.gen(function* () {
 
     const ssm = yield* SSM.AwsSsm;
 
-    const parameters = 
-      yield* ssm.hierarchy.get({ start: "/effect-tg-buddy"});
+    const parameters =
+      yield* ssm.hierarchy.get({ start: "/effect-tg-buddy" });
 
     yield* Effect.logInfo("Resolved config", [...parameters.keys()])
 
     const cp = ssm.makeConfigProvider(parameters);
+
+    initBackend(cp);
 
     return Layer.setConfigProvider(cp);
 
@@ -43,17 +46,15 @@ const layerWithConfig =
     Layer.provide(contextConfig)
   )
 
-export const openaiLayer = 
-  Openai.Text.TextService.Default.pipe(
-    Layer.provide(layerWithConfig)
-  )
+export const aiLayer =
+  AiMainService.Default
 
 const tokenProvider =
   TgBotTokenProvider.fromConfig.pipe(
     Layer.provide(layerWithConfig)
   )
 
-export const handlerRuntime = 
+export const handlerRuntime =
   ManagedRuntime.make(
     Layer.mergeAll(
       MutexService.Default,
@@ -61,7 +62,7 @@ export const handlerRuntime =
       PollingService.Default,
       layerWithConfig
     ).pipe(
-      Layer.provide([ 
+      Layer.provide([
         contextConfig, tokenProvider, NodeFileSystem.layer
       ])
     )
