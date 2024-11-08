@@ -18,4 +18,4 @@ pipe(
   Context.get(MyService),
 )
 
-myServiceInstance.
+myServiceInstance

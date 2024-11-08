@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@effect-ak/misc':
+        specifier: ^0.0.6
+        version: 0.0.6(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
       '@effect-ak/tg-bot':
         specifier: ^0.0.7
         version: 0.0.7(effect@3.10.12)
@@ -17,9 +20,21 @@ importers:
       '@effect/platform-node':
         specifier: ^0.64.20
         version: 0.64.20(@effect/platform@0.69.18(effect@3.10.12))(effect@3.10.12)
+      bootstrap:
+        specifier: ^5.3.3
+        version: 5.3.3(@popperjs/core@2.11.8)
       effect:
         specifier: ^3.10.12
         version: 3.10.12
+      htmx.org:
+        specifier: ^2.0.3
+        version: 2.0.3
+      marked:
+        specifier: ^14.1.4
+        version: 14.1.4
+      purecss:
+        specifier: ^3.0.0
+        version: 3.0.0
     devDependencies:
       '@effect-ak/ai':
         specifier: ^0.0.4
@@ -725,6 +740,9 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==, tarball: https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz}
     engines: {node: '>=14'}
 
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==, tarball: https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz}
+
   '@smithy/abort-controller@3.1.6':
     resolution: {integrity: sha512-0XuhuHQlEqbNQZp7QxxrFTdVWdwxch4vjxYgfInF91hZFkPxf9QDrdQka0KfxFMPqLNzSw0b95uGTrLliQUavQ==, tarball: https://registry.npmjs.org/@smithy/abort-controller/-/abort-controller-3.1.6.tgz}
     engines: {node: '>=16.0.0'}
@@ -1008,6 +1026,11 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==, tarball: https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz}
 
+  bootstrap@5.3.3:
+    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==, tarball: https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.3.tgz}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
+
   bowser@2.11.0:
     resolution: {integrity: sha512-AlcaJBi/pqqJBIQ8U9Mcpc9i8Aqxn88Skv5d+xBX006BY5u8N3mGLHa5Lgppa7L/HfwgwLgZ6NYs+Ag6uUmJRA==, tarball: https://registry.npmjs.org/bowser/-/bowser-2.11.0.tgz}
 
@@ -1134,6 +1157,9 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==, tarball: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz}
 
+  htmx.org@2.0.3:
+    resolution: {integrity: sha512-AeoJUAjkCVVajbfKX+3sVQBTCt8Ct4lif1T+z/tptTXo8+8yyq3QIMQQe/IT+R8ssfrO1I0DeX4CAronzCL6oA==, tarball: https://registry.npmjs.org/htmx.org/-/htmx.org-2.0.3.tgz}
+
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==, tarball: https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz}
 
@@ -1185,6 +1211,11 @@ packages:
 
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==, tarball: https://registry.npmjs.org/make-error/-/make-error-1.3.6.tgz}
+
+  marked@14.1.4:
+    resolution: {integrity: sha512-vkVZ8ONmUdPnjCKc5uTRvmkRbx4EAi2OkTOXmfTDhZz3OFqMNBM1oTTWwTr4HY4uAEojhzPf+Fy8F1DWa3Sndg==, tarball: https://registry.npmjs.org/marked/-/marked-14.1.4.tgz}
+    engines: {node: '>= 18'}
+    hasBin: true
 
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==, tarball: https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz}
@@ -1247,6 +1278,9 @@ packages:
 
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==, tarball: https://registry.npmjs.org/pure-rand/-/pure-rand-6.1.0.tgz}
+
+  purecss@3.0.0:
+    resolution: {integrity: sha512-IdYbGwbmuA7Hy9ACIO1q7ks4xGLcJSVHxJT2BXIz2c4Ve1aSrNU5bAzA1ILT4Gmdy5K59ruWoRPf9WvJZU5fbA==, tarball: https://registry.npmjs.org/purecss/-/purecss-3.0.0.tgz}
 
   queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==, tarball: https://registry.npmjs.org/queue-tick/-/queue-tick-1.0.1.tgz}
@@ -2693,6 +2727,8 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
+  '@popperjs/core@2.11.8': {}
+
   '@smithy/abort-controller@3.1.6':
     dependencies:
       '@smithy/types': 3.6.0
@@ -3112,6 +3148,10 @@ snapshots:
 
   base64-js@1.5.1: {}
 
+  bootstrap@5.3.3(@popperjs/core@2.11.8):
+    dependencies:
+      '@popperjs/core': 2.11.8
+
   bowser@2.11.0: {}
 
   brace-expansion@2.0.1:
@@ -3273,6 +3313,8 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
+  htmx.org@2.0.3: {}
+
   ieee754@1.2.1: {}
 
   inherits@2.0.4: {}
@@ -3310,6 +3352,8 @@ snapshots:
   lru-cache@10.4.3: {}
 
   make-error@1.3.6: {}
+
+  marked@14.1.4: {}
 
   micromatch@4.0.8:
     dependencies:
@@ -3356,6 +3400,8 @@ snapshots:
   process@0.11.10: {}
 
   pure-rand@6.1.0: {}
+
+  purecss@3.0.0: {}
 
   queue-tick@1.0.1: {}
 

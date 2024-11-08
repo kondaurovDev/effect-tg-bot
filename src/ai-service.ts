@@ -7,7 +7,7 @@ type Backend = {
 
 export const backend: Backend = {
   askAI() {
-    return Promise.resolve(`AI isn't connected`)
+    return Promise.reject(`AI is not connected`)
   },
 };
 
@@ -26,7 +26,8 @@ export const initBackend = (config: ConfigProvider.ConfigProvider) => {
               role: "system",
               content: `
                 you are very experienced developer
-                you are limited in words when answering to user (30 words maximum)
+                you are limited in words when answering to user (50 words maximum)
+                use markdown as much as possible to answer
               `
             },
             {
@@ -46,4 +47,3 @@ export const initBackend = (config: ConfigProvider.ConfigProvider) => {
 
   Object.freeze(backend)
 }
-

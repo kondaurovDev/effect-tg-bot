@@ -4,18 +4,25 @@
   "description": "demonstration of effect library via practical task",
   "main": "index.js",
   "scripts": {
-    "start": "tsx src/main",
+    "server-dev": "bun run --watch src/server/main.ts",
+    "server": "tsx run src/server/main.ts",
+    "bot": "tsx src/local-run.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@effect-ak/misc": "^0.0.6",
     "@effect-ak/tg-bot": "^0.0.7",
-    "@effect/platform-node": "^0.64.20",
     "@effect/platform": "^0.69.18",
-    "effect": "^3.10.12"
+    "@effect/platform-node": "^0.64.20",
+    "bootstrap": "^5.3.3",
+    "effect": "^3.10.12",
+    "htmx.org": "^2.0.3",
+    "marked": "^14.1.4",
+    "purecss": "^3.0.0"
   },
   "devDependencies": {
-    "@effect-ak/effortless": "file:../effortless/effect-ak-effortless-0.0.3.tgz",
     "@effect-ak/ai": "^0.0.4",
+    "@effect-ak/effortless": "file:../effortless/effect-ak-effortless-0.0.3.tgz",
     "@types/node": "^20.11.25",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.1",
