@@ -4,8 +4,7 @@ import * as Marked from "marked"
 
 import { ApiEndpoints, PageEndpoints, StaticFilesEndpoints, UnknownError } from "./definition.js";
 import { backend } from "../../ai-service.js";
-import { askAiPage } from "../page-html.js";
-import { readFileEffect } from "../util.js";
+import { UtilService } from "../util.js";
 
 export class BackendApi
   extends HttpApi.empty
@@ -41,11 +40,13 @@ export class BackendApi
         Layer.provide(
           HttpApiBuilder.group(BackendApi, "pages", handlers =>
             Effect.gen(function* () {
-
               return handlers
                 .handle("ask-ai", () =>
                   pipe(
-                    Effect.succeed(askAiPage()),
+                    UtilService,
+                    Effect.andThen(_ => 
+                      _.readFileFromProjectRoot([ "src", "html", "ask-ai.html"])
+                    ),
                     Effect.catchAll(() =>
                       Effect.fail(new UnknownError())
                     )
@@ -61,7 +62,10 @@ export class BackendApi
               return handlers
                 .handle("css", ({ path }) =>
                   pipe(
-                    readFileEffect(path.path.join("/") + ".css"),
+                    UtilService,
+                    Effect.andThen(_ => 
+                      _.readFileFromNodeModules([ ...path.path ])
+                    ),
                     Effect.catchAll(() =>
                       Effect.fail(new UnknownError())
                     )
@@ -69,7 +73,10 @@ export class BackendApi
                 )
                 .handle("js", ({ path }) =>
                   pipe(
-                    readFileEffect(path.path.join("/") + ".js"),
+                    UtilService,
+                    Effect.andThen(_ => 
+                      _.readFileFromNodeModules([ ...path.path ])
+                    ),
                     Effect.catchAll(() =>
                       Effect.fail(new UnknownError())
                     )

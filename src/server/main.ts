@@ -8,6 +8,7 @@ import { LogLevelConfigFromEnv } from "@effect-ak/misc"
 import jsonConfig from "../../config.json"
 import { BackendApi } from "./api/implementation.js"
 import { initBackend } from "../ai-service"
+import { UtilService } from "./util"
 
 process.env["LOG_LEVEL"] = "debug"
 
@@ -36,6 +37,7 @@ const HttpLive =
     Layer.provide(HttpApiBuilder.middlewareCors()),
     Layer.provide(BackendApi.live),
     Layer.provide(LogLevelConfigFromEnv),
+    Layer.provide(UtilService.Default),
     HttpServer.withLogAddress,
     Layer.provide(nodeHttpServer(3000))
   ).pipe(
