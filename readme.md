@@ -3,7 +3,7 @@
 - clone this repo
 - install dependecies `pnpm install`
 - create `config.json` with structure taken from `config/example.json`, __put your credentials 🤪__
-- change `src/bot-logic` to meet your desired bot's logic
+- change [./src/bot-logic.ts](./src/bot-logic.ts) to meet your desired bot's logic
 - run the bot `pnpm tsx src/local-run.ts`
 
 ### How does it work?
