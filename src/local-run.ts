@@ -1,4 +1,4 @@
-import { Effect, Logger, LogLevel } from "effect";
+import { Effect, Logger } from "effect";
 import { PollingService } from "@effect-ak/tg-bot";
 import { NodeRuntime } from "@effect/platform-node";
 import { TgWebhookService } from "@effect-ak/tg-bot/module";
@@ -23,9 +23,9 @@ const program =
     );
 
   }).pipe(
-    Logger.withMinimumLogLevel(LogLevel.Debug),
+    // Logger.withMinimumLogLevel(LogLevel.Debug),
     Effect.provide(localRuntime),
-    Effect.provide(Logger.structured)
+    Effect.provide(Logger.pretty)
   )
 
 NodeRuntime.runMain(

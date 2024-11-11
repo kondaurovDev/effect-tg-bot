@@ -2,8 +2,5 @@
   "effect-ak-tg-bot": {
     "stop-when-empty-times": 3,
     "token": "75296****"
-  },
-  "effect-ak-ai": {
-    "openai-token": "sk-proj-Guz_eYPL****"
   }
 }

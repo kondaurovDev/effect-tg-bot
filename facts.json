@@ -1,0 +1,24 @@
+{
+  "facts": [
+    {
+      "title": "Type Safety Prevents Runtime Errors",
+      "description": "TypeScript's static typing catches potential errors during development, reducing bugs that would only be discovered at runtime in JavaScript. This leads to more reliable and maintainable code."
+    },
+    {
+      "title": "Better IDE Support and Developer Experience",
+      "description": "Static types enable powerful IDE features like accurate autocompletion, refactoring tools, and inline documentation, making development faster and more efficient."
+    },
+    {
+      "title": "Self-Documenting Code",
+      "description": "Type annotations serve as built-in documentation, making it easier for developers to understand code structure and API contracts without relying on external documentation."
+    },
+    {
+      "title": "Enhanced Code Maintainability",
+      "description": "Typed languages make large-scale refactoring safer and easier, as type checking ensures that changes are consistent across the entire codebase."
+    },
+    {
+      "title": "Better Team Collaboration",
+      "description": "Static typing creates clear contracts between different parts of an application, making it easier for teams to work together and integrate code written by different developers."
+    }
+  ]
+}

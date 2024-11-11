@@ -6,7 +6,6 @@ import { Context, Effect, Layer, ManagedRuntime } from "effect";
 import { PollingService, TgBotService } from "@effect-ak/tg-bot";
 import { TgBotTokenProvider } from "@effect-ak/tg-bot/api";
 import { AiMainService } from "@effect-ak/ai";
-import { initBackend } from "../ai-service";
 
 const mainConfig =
   Layer.provideMerge(
@@ -36,8 +35,6 @@ const layerWithConfig =
 
     const cp = ssm.makeConfigProvider(parameters);
 
-    initBackend(cp);
-
     return Layer.setConfigProvider(cp);
 
   }).pipe(
@@ -66,4 +63,4 @@ export const handlerRuntime =
         contextConfig, tokenProvider, NodeFileSystem.layer
       ])
     )
-  )
+  );

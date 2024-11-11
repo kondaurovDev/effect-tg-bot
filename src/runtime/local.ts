@@ -5,12 +5,9 @@ import { TgWebhookService } from "@effect-ak/tg-bot/module";
 import { NodeFileSystem } from "@effect/platform-node";
 
 import botConfig from "../../config.json";
-import { initBackend } from "../ai-service";
 
 const configProvider = 
   ConfigProvider.fromJson(botConfig);
-
-initBackend(configProvider);
 
 const configProviderLayer =
   Layer.setConfigProvider(configProvider);

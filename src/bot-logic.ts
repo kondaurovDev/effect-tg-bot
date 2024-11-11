@@ -1,6 +1,6 @@
 import { MessageHandler } from "@effect-ak/tg-bot";
 
-import { backend } from "./ai-service";
+import { getRandomTsFact } from "./helper";
 
 export const messageHandler: MessageHandler =
   async ({ message, currentChatId, service }) => {
@@ -29,11 +29,14 @@ export const messageHandler: MessageHandler =
     }
 
     if (message.text == "/fact") {
-      console.log("asked fact")
-      const fact = await backend.askAI("tell me an interesting and practical information about typescript")
+      const fact = getRandomTsFact();
       return service.chat.sendMessage({
         chat_id: currentChatId,
-        text: fact
+        parse_mode: "HTML",
+        text: `
+          <b>${fact.title}</b>
+          <blockquote>${fact.description}</blockquote>
+        `
       });
     }
 
