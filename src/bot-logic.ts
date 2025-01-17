@@ -6,14 +6,9 @@ runTgChatBot({
   type: "fromJsonFile",
   on_message: (message) => {
 
-    if (message.text == null) {
-      return {
-        type: "message",
-        text: "I got your non-text message!",
-        reply_parameters: {
-          message_id: message.message_id
-        }
-      }
+    if (!message.text) {
+      console.info("non text message", message)
+      return;
     }
 
     if (message.text == "/random") {
