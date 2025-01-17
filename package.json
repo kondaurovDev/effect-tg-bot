@@ -1,25 +1,12 @@
 {
   "name": "effect-tg-bot",
   "author": "Aleksandr Kondaurov",
-  "description": "demonstration of effect library via practical task",
-  "main": "index.js",
-  "scripts": {
-    "bot": "tsx src/local-run.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "demonstration of effect library and tg-bot-client",
   "dependencies": {
-    "@effect-ak/misc": "^0.0.6",
-    "@effect-ak/tg-bot": "^0.0.7",
-    "@effect/platform": "^0.69.18",
-    "@effect/platform-node": "^0.64.20",
-    "effect": "^3.10.12"
+    "@effect-ak/tg-bot-client": "^0.3.1",
+    "effect": "^3.12.5"
   },
   "devDependencies": {
-    "@effect-ak/ai": "^0.0.4",
-    "@effect-ak/effortless": "file:../effortless/effect-ak-effortless-0.0.3.tgz",
-    "@types/node": "^20.11.25",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.7.1",
-    "typescript": "^5.6.3"
+    "@types/node": "^20.11.25"
   }
 }

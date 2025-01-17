@@ -2,9 +2,10 @@
 
 - clone this repo
 - install dependecies `pnpm install`
-- create `config.json` with structure taken from `config/example.json`, __put your credentials 🤪__
+- create `config.json` with following structure
+  - `{"bot_token": "*** your bot token ***"}`
 - change [./src/bot-logic.ts](./src/bot-logic.ts) to meet your desired bot's logic
-- run the bot `pnpm tsx src/local-run.ts`
+- run the bot `tsx src/local-run.ts` (global tsx)
 
 ### How does it work?
 

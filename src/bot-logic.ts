@@ -1,59 +1,61 @@
-import { MessageHandler } from "@effect-ak/tg-bot";
+import { MESSAGE_EFFECTS, runTgChatBot } from "@effect-ak/tg-bot-client"
 
 import { getRandomTsFact } from "./helper";
 
-export const messageHandler: MessageHandler =
-  async ({ message, currentChatId, service }) => {
-
-    await service.chat.setChatAction({
-      action: "typing",
-      chat_id: currentChatId
-    }).promise()
+runTgChatBot({
+  type: "fromJsonFile",
+  on_message: (message) => {
 
     if (message.text == null) {
-      return service.chat.sendMessage({
-        chat_id: currentChatId,
+      return {
+        type: "message",
         text: "I got your non-text message!",
         reply_parameters: {
-          chat_id: currentChatId,
           message_id: message.message_id
         }
-      });
+      }
     }
 
     if (message.text == "/random") {
-      return service.chat.sendDice({
-        chat_id: currentChatId,
+      return {
+        type: "dice",
         emoji: "🏀"
-      });
+      };
     }
 
-    if (message.text == "/fact") {
-      const fact = getRandomTsFact();
-      return service.chat.sendMessage({
-        chat_id: currentChatId,
+    if (message.text == "/echo") {
+      return {
+        type: "message",
         parse_mode: "HTML",
         text: `
-          <b>${fact.title}</b>
+          <pre language="json">${JSON.stringify(message, undefined, 2)}</pre>
+        `
+      };
+    }
+
+    if (message.text == "/typescript") {
+      const fact = getRandomTsFact();
+      return {
+        type: "message",
+        parse_mode: "HTML",
+        text: `
+          <b>Typescript: ${fact.title}</b>
           <blockquote>${fact.description}</blockquote>
         `
-      });
+      }
     }
 
     if (message.text == "/start") {
-      const botInfo =
-        await service.botSettings.getMe.promise();
-
-      return service.chat.sendMessage({
-        chat_id: currentChatId,
-        text: `Hello, ${message.from?.first_name}. My name is ${botInfo.first_name}. Let's talk! :)`,
-        message_effect_id: "🔥"
-      });
+      return {
+        type: "message",
+        text: `Hello, ${message.from?.first_name}. My name is Buddy. Let's talk! :)`,
+        message_effect_id: MESSAGE_EFFECTS["🔥"]
+      }
     }
 
     if (message.text == "/pay") {
-      return service.payment.sendStarsInvoice({
-        chat_id: currentChatId,
+      return {
+        type: "invoice",
         currency: "XTR",
         description: "test payment",
         payload: "payload",
@@ -63,17 +65,19 @@ export const messageHandler: MessageHandler =
         ],
         title: "test",
         provider_token: ""
-      })
+      }
     }
 
-    return service.chat.sendMessage({
-      chat_id: currentChatId,
-      reply_parameters: {
-        chat_id: currentChatId,
-        message_id: message.message_id
-      },
-      text: "I don't know how to reply on that",
-      message_effect_id: "💩"
-    });
+    if (message.text) {
+      return {
+        type: "message",
+        reply_parameters: {
+          message_id: message.message_id
+        },
+        text: "I don't know how to reply on that message",
+        message_effect_id: MESSAGE_EFFECTS["💩"]
+      };
+    }
 
   }
+})
