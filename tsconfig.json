@@ -9,5 +9,9 @@
     "strict": true,
     "skipLibCheck": true,
     "exactOptionalPropertyTypes": true,
+    "paths": {
+      "#/*": ["./src/*"],
+      "#sdk-clients/*": ["./scripts/aws-clients/*"],
+    }
   }
 }

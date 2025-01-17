@@ -1,13 +1,11 @@
-import { MESSAGE_EFFECTS, runTgChatBot } from "@effect-ak/tg-bot-client"
-
+import { MESSAGE_EFFECTS, BotMessageHandlers } from "@effect-ak/tg-bot-client";
 import { getRandomTsFact } from "./helper";
 
-runTgChatBot({
-  type: "fromJsonFile",
+export const buddyBot: BotMessageHandlers = {
   on_message: (message) => {
 
     if (!message.text) {
-      console.info("non text message", message)
+      console.info("non text message", message);
       return;
     }
 
@@ -75,4 +73,4 @@ runTgChatBot({
     }
 
   }
-})
+}

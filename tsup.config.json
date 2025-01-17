@@ -1,0 +1,17 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
+  "entry": [
+    "src/lambda-run.ts"
+  ],
+  "outDir": "dist",
+  "format": ["esm"],
+  "splitting": false,
+  "sourcemap": false,
+  "noExternal": [
+    "effect",
+    "@effect-ak"
+  ],
+  "minify": true,
+  "clean": true,
+  "dts": false
+}

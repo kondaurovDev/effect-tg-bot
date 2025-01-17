@@ -1,7 +1,7 @@
 run:
-	tsx src/bot-logic.ts
+	tsx src/local-run.ts
 
-check:
-	curl -X POST https://api.telegram.org/bot7529626191:AAHIF9V0Ex0zA1Z4QbVKu53-s2FFJhdF1PI/getUpdates \
-		-H "Content-Type: application/json" \
-		-d '{"allowed_updates": ["message"]}' | jq .
+deploy:
+	tsup
+	zip lambda.zip -r dist
+	tsx scripts/deploy/_main.ts
