@@ -28,7 +28,7 @@ export const deployFunction =
 
     yield* upsertFunction({
       functionName: "buddy-bot-bff",
-      handler: "dist/lambda-bff.handler",
+      handler: "dist/bff.handler",
       description: "https://github.com/kondaurovDev/effect-tg-bot",
       timeout: 5,
       enableUrl: true,
@@ -45,15 +45,15 @@ export const deployFunction =
 
     yield* upsertFunction({
       functionName: "buddy-bot-handler",
-      handler: "dist/lambda-run.handler",
+      handler: "dist/bot.handler",
       description: "https://github.com/kondaurovDev/effect-tg-bot",
       timeout,
       enableUrl: false,
       iamRole: role,
       env: {
         BOT_TOKEN: botService.config.bot_token,
-        [ENV_KEYS.timeoutInSeconds]: `${timeout}`,
-        [ENV_KEYS.lockBucket]: "kondaurovdev"
+        [ ENV_KEYS.timeoutInSeconds ]: `${timeout}`,
+        [ ENV_KEYS.lockBucket ]: "kondaurovdev"
       }
     })
 

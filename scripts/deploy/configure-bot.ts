@@ -34,6 +34,8 @@ export const configureTgBot =
       })
     );
 
+    console.log("Setting up bot's commands ")
+
     yield* Effect.tryPromise(() =>
       botService.client.execute("set_my_commands", {
         commands: [
@@ -44,6 +46,18 @@ export const configureTgBot =
           {
             command: "/typescript",
             description: "Displays a key advantage of using TypeScript"
+          },
+          {
+            command: "/help",
+            description: "Provides information about this bot"
+          },
+          {
+            command: "/start",
+            description: "Replies with a greeting"
+          },
+          {
+            command: "/random",
+            description: "Sends an animated message with a random outcome"
           }
         ]
       })

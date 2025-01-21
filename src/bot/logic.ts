@@ -53,8 +53,7 @@ export const botLogic: BotMessageHandlers = {
         description: "test payment",
         payload: "payload",
         prices: [
-          { label: "one", amount: 1 },
-          // { label: "two", amount: 2 },
+          { label: "test", amount: 1 },
         ],
         title: "test",
         provider_token: ""
