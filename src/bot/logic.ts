@@ -9,6 +9,36 @@ export const botLogic: BotMessageHandlers = {
       return;
     }
 
+    if (message.text == "/start") {
+      return {
+        type: "message",
+        text: `
+          Hello, ${message.from?.first_name}. I am Buddy :)
+        `,
+        message_effect_id: MESSAGE_EFFECTS["❤️"]
+      }
+    }
+
+    if (message.text == "/help") {
+      return {
+        type: "message",
+        text: `You can find my code on GitHub.`,
+        reply_markup: {
+          inline_keyboard: [
+            [
+              {
+                text: "GitHub",
+                url: "https://github.com/kondaurovDev/effect-tg-bot"
+              }
+            ]
+          ]
+        },
+        message_effect_id: MESSAGE_EFFECTS["🔥"]
+      }
+    }
+
+    
+
     if (message.text == "/random") {
       return {
         type: "dice",
@@ -35,14 +65,6 @@ export const botLogic: BotMessageHandlers = {
           <b>Typescript: ${fact.title}</b>
           <blockquote>${fact.description}</blockquote>
         `
-      }
-    }
-
-    if (message.text == "/start") {
-      return {
-        type: "message",
-        text: `Hello, ${message.from?.first_name}. I am Buddy. Let's talk! :)`,
-        message_effect_id: MESSAGE_EFFECTS["🔥"]
       }
     }
 

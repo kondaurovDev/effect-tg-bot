@@ -24,7 +24,7 @@ Alternatively, you can run the chatbot locally using your own bot.
     "bot_token": "*** your bot token ***"
   }
   ```
-- Modify [./src/bot-logic.ts](./src/bot-logic.ts) to implement your desired bot logic.
+- Modify [./src/bot/logic.ts](./src/bot/logic.ts) to implement your desired bot logic.
 - Run the bot: `tsx src/local-run.ts` (requires global `tsx`).
 
 ### How Does It Work?
