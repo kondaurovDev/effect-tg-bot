@@ -1,7 +1,7 @@
 import { MESSAGE_EFFECTS, BotMessageHandlers } from "@effect-ak/tg-bot-client";
-import { getRandomTsFact } from "./helper";
+import { getRandomTsFact } from "./utils";
 
-export const buddyBot: BotMessageHandlers = {
+export const botLogic: BotMessageHandlers = {
   on_message: (message) => {
 
     if (!message.text) {
@@ -41,7 +41,7 @@ export const buddyBot: BotMessageHandlers = {
     if (message.text == "/start") {
       return {
         type: "message",
-        text: `Hello, ${message.from?.first_name}. My name is Buddy. Let's talk! :)`,
+        text: `Hello, ${message.from?.first_name}. I am Buddy. Let's talk! :)`,
         message_effect_id: MESSAGE_EFFECTS["🔥"]
       }
     }

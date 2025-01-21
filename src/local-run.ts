@@ -1,7 +1,7 @@
 import { runTgChatBot } from "@effect-ak/tg-bot-client"
-import { buddyBot } from "./bots/buddy"
+import { botLogic } from "./bot/logic"
 
 runTgChatBot({
   type: "fromJsonFile",
-  ...buddyBot
+  ...botLogic
 });

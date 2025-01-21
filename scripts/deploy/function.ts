@@ -3,10 +3,11 @@ import { Data, Effect, Equal, pipe, Schedule } from "effect";
 import { iam } from "#sdk-clients/iam";
 import { lambda } from "#sdk-clients/lambda";
 import { FileSystem } from "@effect/platform";
+import { getFunctionUrl } from "./configure-bot";
 
 export const REGION = "eu-west-1";
 
-const ROLE_NAME = "family-budget";
+const ROLE_NAME = "tg-bot-buddy";
 
 type UpsertFunctionInput = {
   functionName: string
@@ -30,7 +31,7 @@ export const upsertFunction = (
       yield* lambda("get_function", {
         FunctionName: functionName
       }).pipe(
-        Effect.catchTag("LambdaResourceNotFound", () => Effect.void)
+        Effect.catchIf(_ => _.$is("ResourceNotFoundException"), () => Effect.void)
       );
 
     const code = yield* fs.readFile("lambda.zip");
@@ -76,30 +77,25 @@ export const upsertFunction = (
       FunctionName: functionName,
       ZipFile: code
     }).pipe(
+      Effect.tapError(Effect.logError),
       Effect.retry({
         schedule: Schedule.exponential("10 seconds"),
         times: 3,
-        while(error) {
-          return error._tag == "LambdaResourceConflict"
-        },
+        while: _ => _.$is("ResourceConflictException"),
       })
     );
 
-    const fnPolicy =
-      yield* lambda("get_policy", {
-        FunctionName: functionName
-      }).pipe(
-        Effect.catchTag("LambdaResourceNotFound", () => Effect.void)
-      );
-
-    const urlConfig =
-      yield* lambda("get_function_url_config", {
-        FunctionName: functionName
-      }).pipe(
-        Effect.catchTag("LambdaResourceNotFound", () => Effect.void)
-      );
-
     if (enableUrl) {
+
+      const fnPolicy =
+        yield* lambda("get_policy", {
+          FunctionName: functionName
+        }).pipe(
+          Effect.catchIf(_ => _.$is("ResourceNotFoundException"), () => Effect.void)
+        );
+
+      const urlConfig =
+        yield* getFunctionUrl(functionName);
 
       if (!urlConfig) {
         yield* lambda("create_function_url_config", {
@@ -135,7 +131,7 @@ export const upsertFunction = (
         BatchSize: 100,
         MaximumBatchingWindowInSeconds: 60
       }).pipe(
-        Effect.catchTag("LambdaResourceConflict", () => Effect.void)
+        Effect.catchIf(_ => _.$is("ResourceConflictException"), () => Effect.void)
       );
 
     }
@@ -148,7 +144,7 @@ export const getIamFunctionRole =
       RoleName: ROLE_NAME
     }),
     Effect.andThen(_ => _.Role?.Arn),
-    Effect.catchTag("IAMNoSuchEntity", () =>
+    Effect.catchIf(_ => _.$is("NoSuchEntityException"), () =>
       iam("create_role", {
         RoleName: ROLE_NAME,
         AssumeRolePolicyDocument:

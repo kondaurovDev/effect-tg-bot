@@ -1,15 +1,20 @@
 import { Effect, Layer } from "effect";
-import { NodeFileSystem } from "@effect/platform-node";
+import { NodeContext } from "@effect/platform-node";
 
 import { IAMClientTag, makeIAMClient } from "#sdk-clients/iam";
 import { LambdaClientTag, makeLambdaClient } from "#sdk-clients/lambda";
+import { ENV_KEYS } from "#/const";
 import { getIamFunctionRole, REGION, upsertFunction } from "./function";
+import { BotService } from "./bot-service";
+import { configureTgBot } from "./configure-bot";
 
 const live =
   Layer.mergeAll(
     Layer.effect(IAMClientTag, makeIAMClient({ region: REGION })),
     Layer.effect(LambdaClientTag, makeLambdaClient({ region: REGION })),
-    NodeFileSystem.layer
+    BotService.Default
+  ).pipe(
+    Layer.provideMerge(NodeContext.layer)
   );
 
 export const deployFunction =
@@ -17,19 +22,40 @@ export const deployFunction =
 
     const role = yield* getIamFunctionRole;
 
-    yield* Effect.all({
-      requestFn: upsertFunction({
-        functionName: "buddy-bot-handler",
-        handler: "dist/lambda-run.handler",
-        description: "https://github.com/kondaurovDev/effect-tg-bot",
-        timeout: 3,
-        enableUrl: true,
-        iamRole: role,
-        env: {}
-      })
-    }, { 
-      concurrency: "unbounded" 
+    const botService = yield* BotService;
+
+    const timeout = 50;
+
+    yield* upsertFunction({
+      functionName: "buddy-bot-bff",
+      handler: "dist/lambda-bff.handler",
+      description: "https://github.com/kondaurovDev/effect-tg-bot",
+      timeout: 5,
+      enableUrl: true,
+      iamRole: role,
+      env: {
+        BOT_TOKEN: botService.config.bot_token,
+        [ENV_KEYS.lockBucket]: "kondaurovdev"
+      }
     });
+
+    yield* configureTgBot;
+
+    yield* Effect.logInfo("BotHandler =>")
+
+    yield* upsertFunction({
+      functionName: "buddy-bot-handler",
+      handler: "dist/lambda-run.handler",
+      description: "https://github.com/kondaurovDev/effect-tg-bot",
+      timeout,
+      enableUrl: false,
+      iamRole: role,
+      env: {
+        BOT_TOKEN: botService.config.bot_token,
+        [ENV_KEYS.timeoutInSeconds]: `${timeout}`,
+        [ENV_KEYS.lockBucket]: "kondaurovdev"
+      }
+    })
 
   }).pipe(
     Effect.provide(live),

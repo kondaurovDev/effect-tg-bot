@@ -1,15 +1,20 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
-  "entry": [
-    "src/lambda-run.ts"
-  ],
+  "entry": {
+    "bot": "src/lambda/bot/handler.ts",
+    "bff": "src/lambda/bff/handler.ts"
+  },
   "outDir": "dist",
-  "format": ["esm"],
+  "format": ["cjs"],
   "splitting": false,
   "sourcemap": false,
+  "external": [
+    "@aws-sdk"
+  ],
   "noExternal": [
     "effect",
-    "@effect-ak"
+    "@effect-ak",
+    "@effect"
   ],
   "minify": true,
   "clean": true,
