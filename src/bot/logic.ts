@@ -1,4 +1,4 @@
-import { MESSAGE_EFFECTS, BotMessageHandlers } from "@effect-ak/tg-bot-client";
+import { MESSAGE_EFFECTS, BotMessageHandlers, BotResponse } from "@effect-ak/tg-bot-client";
 import { getRandomTsFact } from "./utils";
 
 export const botLogic: BotMessageHandlers = {
@@ -6,21 +6,21 @@ export const botLogic: BotMessageHandlers = {
 
     if (!message.text) {
       console.info("non text message", message);
-      return;
+      return BotResponse.ignore;
     }
 
     if (message.text == "/start") {
-      return {
+      return BotResponse.make({
         type: "message",
         text: `
           Hello, ${message.from?.first_name}. I am Buddy :)
         `,
         message_effect_id: MESSAGE_EFFECTS["❤️"]
-      }
+      })
     }
 
     if (message.text == "/help") {
-      return {
+      return BotResponse.make({
         type: "message",
         text: `You can find my code on GitHub.`,
         reply_markup: {
@@ -34,42 +34,40 @@ export const botLogic: BotMessageHandlers = {
           ]
         },
         message_effect_id: MESSAGE_EFFECTS["🔥"]
-      }
+      })
     }
 
-    
-
     if (message.text == "/random") {
-      return {
+      return BotResponse.make({
         type: "dice",
         emoji: "🏀"
-      };
+      });
     }
 
     if (message.text == "/echo") {
-      return {
+      return BotResponse.make({
         type: "message",
         parse_mode: "HTML",
         text: `
           <pre language="json">${JSON.stringify(message, undefined, 2)}</pre>
         `
-      };
+      });
     }
 
     if (message.text == "/typescript") {
       const fact = getRandomTsFact();
-      return {
+      return BotResponse.make({
         type: "message",
         parse_mode: "HTML",
         text: `
           <b>Typescript: ${fact.title}</b>
           <blockquote>${fact.description}</blockquote>
         `
-      }
+      })
     }
 
     if (message.text == "/pay") {
-      return {
+      return BotResponse.make({
         type: "invoice",
         currency: "XTR",
         description: "test payment",
@@ -79,19 +77,21 @@ export const botLogic: BotMessageHandlers = {
         ],
         title: "test",
         provider_token: ""
-      }
+      })
     }
 
     if (message.text) {
-      return {
+      return BotResponse.make({
         type: "message",
         reply_parameters: {
           message_id: message.message_id
         },
         text: "I don't know how to reply on that message",
         message_effect_id: MESSAGE_EFFECTS["💩"]
-      };
+      });
     }
+
+    return BotResponse.ignore;
 
   }
 }

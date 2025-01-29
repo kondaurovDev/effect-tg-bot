@@ -22,11 +22,11 @@ importers:
         specifier: 3.730.0
         version: 3.730.0
       '@effect-ak/aws-sdk':
-        specifier: file://../effect-ak-org/aws-sdk-clients/effect-ak-aws-sdk-0.1.0.tgz
-        version: file:../effect-ak-org/aws-sdk-clients/effect-ak-aws-sdk-0.1.0.tgz
+        specifier: ^0.1.1
+        version: 0.1.1
       '@effect-ak/tg-bot-client':
-        specifier: file://../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.3.2.tgz
-        version: file:../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.3.2.tgz
+        specifier: ^0.4.2
+        version: 0.4.2
       '@effect/platform':
         specifier: ^0.74.0
         version: 0.74.0(effect@3.12.5)
@@ -201,14 +201,12 @@ packages:
     resolution: {integrity: sha512-5xK2SqGU1mzzsOeemy7cy3fGKxR1sEpUs4pEiIjaT0OIvU+fZaDVUEYWOqsgns6wI90XZEQJlXtI8uAHX/do5Q==, tarball: https://registry.npmjs.org/@aws-sdk/xml-builder/-/xml-builder-3.723.0.tgz}
     engines: {node: '>=18.0.0'}
 
-  '@effect-ak/aws-sdk@file:../effect-ak-org/aws-sdk-clients/effect-ak-aws-sdk-0.1.0.tgz':
-    resolution: {integrity: sha512-G41RHeBKbJ5M5AKurfreNmiaLzBr2We8SWiHIng7kj7IGYczg0zlqRHasEioyy09VDVvUbGM4ag1Lu27m85RLg==, tarball: file:../effect-ak-org/aws-sdk-clients/effect-ak-aws-sdk-0.1.0.tgz}
-    version: 0.1.0
+  '@effect-ak/aws-sdk@0.1.1':
+    resolution: {integrity: sha512-Hk/N7guUcfUNMGdWWe95QOU5QODAGRhJdpd8j4av4EOnVAtSJqTXXnjIL3BuVzwdCgDkXEA31A5kwuvjnzf/kA==, tarball: https://registry.npmjs.org/@effect-ak/aws-sdk/-/aws-sdk-0.1.1.tgz}
     hasBin: true
 
-  '@effect-ak/tg-bot-client@file:../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.3.2.tgz':
-    resolution: {integrity: sha512-29pir3cccBgK1zP2Yu8AdaHcZTDkR5NjDga5kzNiwsX1gNQiEnKcFNh4CU9yQ/h1FjnKXJgdC2x+MIP4zAYdag==, tarball: file:../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.3.2.tgz}
-    version: 0.3.2
+  '@effect-ak/tg-bot-client@0.4.2':
+    resolution: {integrity: sha512-YU5UIlDQ4Xvy6JhXQjWW+M/wQGGG4RJ+yXAoC4CDEo1qjdyQCsFHmBd3m87aiSc/eSqGHrcfiXW09014i9oZPg==, tarball: https://registry.npmjs.org/@effect-ak/tg-bot-client/-/tg-bot-client-0.4.2.tgz}
 
   '@effect/platform-node-shared@0.24.0':
     resolution: {integrity: sha512-kgvA2MhpGX2ubwzr5JexoyucKPvy6arCqJjpENX8SWz5eJ8UqtH2LUX3hDwjDQOkOTu37i0zLUi5FeogtXj85A==, tarball: https://registry.npmjs.org/@effect/platform-node-shared/-/platform-node-shared-0.24.0.tgz}
@@ -1237,12 +1235,12 @@ snapshots:
       '@smithy/types': 4.1.0
       tslib: 2.8.1
 
-  '@effect-ak/aws-sdk@file:../effect-ak-org/aws-sdk-clients/effect-ak-aws-sdk-0.1.0.tgz':
+  '@effect-ak/aws-sdk@0.1.1':
     dependencies:
       effect: 3.12.5
       ts-morph: 25.0.0
 
-  '@effect-ak/tg-bot-client@file:../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.3.2.tgz':
+  '@effect-ak/tg-bot-client@0.4.2':
     dependencies:
       effect: 3.12.5
 

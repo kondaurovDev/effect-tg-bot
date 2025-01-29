@@ -3,5 +3,6 @@ import { botLogic } from "./bot/logic"
 
 runTgChatBot({
   type: "fromJsonFile",
+  log_level: "debug",
   ...botLogic
 });
