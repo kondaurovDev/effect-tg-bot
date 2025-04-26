@@ -2,19 +2,16 @@
   "name": "effect-tg-bot",
   "private": "true",
   "author": "Aleksandr Kondaurov",
-  "description": "demonstration of effect and tg-bot-client library ",
+  "description": "demonstration of effect-ts and tg-bot-client library",
   "devDependencies": {
-    "@aws-sdk/client-iam": "3.730.0",
-    "@aws-sdk/client-lambda": "3.730.0",
-    "@aws-sdk/client-s3": "3.730.0",
-    "@effect-ak/aws-sdk": "^0.1.1",
-    "@effect-ak/tg-bot-client": "^0.4.2",
-    "@effect/platform": "^0.74.0",
-    "@effect/platform-node": "^0.70.0",
+    "@aws-sdk/client-ssm": "^3.787.0",
+    "@effect-ak/aws-sdk": "^0.2.1",
+    "@effect-ak/tg-bot-client": "file:../effect-ak-org/tg-bot-client/effect-ak-tg-bot-client-0.6.0.tgz",
+    "@effect/platform": "^0.80.8",
+    "@effect/platform-node": "^0.76.16",
     "@types/node": "22.10.7",
-    "effect": "^3.12.5"
-  },
-  "dependencies": {
-    "@types/aws-lambda": "^8.10.147"
+    "effect": "^3.14.14",
+    "aws-cdk-lib": "^2.189.0",
+    "@types/aws-lambda": "^8.10.149"
   }
 }

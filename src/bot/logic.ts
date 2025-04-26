@@ -1,7 +1,8 @@
-import { MESSAGE_EFFECTS, BotMessageHandlers, BotResponse } from "@effect-ak/tg-bot-client";
+import { MESSAGE_EFFECTS } from "@effect-ak/tg-bot-client";
+import { BotUpdatesHandlers, BotResponse } from "@effect-ak/tg-bot-client/bot";
 import { getRandomTsFact } from "./utils";
 
-export const botLogic: BotMessageHandlers = {
+export const botLogic = {
   on_message: (message) => {
 
     if (!message.text) {
@@ -94,4 +95,4 @@ export const botLogic: BotMessageHandlers = {
     return BotResponse.ignore;
 
   }
-}
+} satisfies BotUpdatesHandlers

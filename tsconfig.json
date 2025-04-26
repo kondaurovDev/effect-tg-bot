@@ -11,7 +11,7 @@
     "exactOptionalPropertyTypes": true,
     "paths": {
       "#/*": ["./src/*"],
-      "#sdk-clients/*": ["./scripts/aws-clients/*"],
+      "#scripts/*": ["./scripts/*"],
     }
   }
 }

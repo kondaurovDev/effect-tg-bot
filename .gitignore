@@ -3,3 +3,5 @@ node_modules
 scripts/aws-clients
 dist
 *.zip
+src/aws-clients
+cdk.out

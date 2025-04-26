@@ -1,8 +1,8 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
   "entry": {
-    "bot": "src/lambda/bot/handler.ts",
-    "bff": "src/lambda/bff/handler.ts"
+    "bff": "src/lambda/bff/handler.ts",
+    "bot": "src/lambda/bot/handler.ts"
   },
   "outDir": "dist",
   "format": ["cjs"],
