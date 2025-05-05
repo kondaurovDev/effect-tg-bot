@@ -14,7 +14,7 @@ export const botLogic = defineBot({
       return BotResponse.make({
         type: "message",
         text: `
-          Hello, ${message.from?.first_name}. I am Buddy :)
+          Hello, ${message.from?.first_name}. I am Buddy ☺️
         `,
         message_effect_id: MESSAGE_EFFECTS["🔥"]
       })
@@ -41,7 +41,7 @@ export const botLogic = defineBot({
     if (message.text == "/random") {
       return BotResponse.make({
         type: "dice",
-        emoji: "🏀"
+        emoji: "⚽"
       });
     }
 
