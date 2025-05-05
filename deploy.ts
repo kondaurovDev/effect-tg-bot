@@ -13,7 +13,10 @@ const code = readFileSync("./dist/bot.js")
 
 fetch(`${url}?${params.toString()}`, {
   method: "POST",
-  body: code
+  body: code,
+  headers: {
+    auth: cred.platform_token
+  }
 }).then(async (res) => {
   console.log("Success", JSON.stringify(await res.json(), undefined, 2))
 }).finally(() => {
