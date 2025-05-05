@@ -1,8 +1,8 @@
 import { MESSAGE_EFFECTS } from "@effect-ak/tg-bot-client";
-import { BotUpdatesHandlers, BotResponse } from "@effect-ak/tg-bot-client/bot";
+import { BotResponse, defineBot } from "@effect-ak/tg-bot-client/bot";
 import { getRandomTsFact } from "./utils";
 
-export const botLogic = {
+export const botLogic = defineBot({
   on_message: (message) => {
 
     if (!message.text) {
@@ -16,7 +16,7 @@ export const botLogic = {
         text: `
           Hello, ${message.from?.first_name}. I am Buddy :)
         `,
-        message_effect_id: MESSAGE_EFFECTS["❤️"]
+        message_effect_id: MESSAGE_EFFECTS["🔥"]
       })
     }
 
@@ -95,4 +95,4 @@ export const botLogic = {
     return BotResponse.ignore;
 
   }
-} satisfies BotUpdatesHandlers
+})

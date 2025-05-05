@@ -1,16 +1,12 @@
 {
   "$schema": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
   "entry": {
-    "bff": "src/lambda/bff/handler.ts",
-    "bot": "src/lambda/bot/handler.ts"
+    "bot": "src/run-worker.ts"
   },
   "outDir": "dist",
   "format": ["cjs"],
   "splitting": false,
   "sourcemap": false,
-  "external": [
-    "@aws-sdk"
-  ],
   "noExternal": [
     "effect",
     "@effect-ak",

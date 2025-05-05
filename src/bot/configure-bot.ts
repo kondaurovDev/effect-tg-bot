@@ -1,23 +1,9 @@
 import { Effect } from "effect";
-import { BotService } from "./client";
+import { execute } from "@effect-ak/tg-bot-client";
 
-export const configureTgBot =
-  Effect.fn("configure bot")(function* () {
-
-    const botService = yield* BotService;
-
-    yield* Effect.logInfo("Setting up bot's commands");
-
-    yield* setupCommands(botService);
-
-  });
-
-
-const setupCommands = (
-  botService: BotService
-) =>
-  Effect.tryPromise(() =>
-    botService.client.execute("set_my_commands", {
+export const setupCommands = 
+  Effect.fn("setup bot commands")(() =>
+    execute("set_my_commands", {
       commands: [
         {
           command: "/echo",
@@ -41,4 +27,4 @@ const setupCommands = (
         }
       ]
     })
-  )
+  );
